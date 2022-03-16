@@ -40,4 +40,9 @@ Things you may want to cover:
 ・記事削除
 ・ユーザーパスワード変更
 ・マークダウン対応
+・bootstrap対応
 
+
+参考一覧
+ブートストラップ適用
+https://qiita.com/beanzou/items/4f49d4d63776234cc992
