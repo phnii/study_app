@@ -44,5 +44,7 @@ Things you may want to cover:
 
 
 参考一覧
-ブートストラップ適用
+・ブートストラップ適用
 https://qiita.com/beanzou/items/4f49d4d63776234cc992
+・マークダウン、シンタックスハイライト適用
+https://www.autovice.jp/articles/40
