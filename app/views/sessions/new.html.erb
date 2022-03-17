@@ -1,0 +1,17 @@
+<h1>ログイン画面</h1>
+<%= content_tag(:span, flash.alert, class: "alert") if flash.alert %>
+<div id="login-form">
+  <%= form_with model: @form, url: :session, local: true do |f| %>
+    <div>
+      <%= f.label :email, "メールアドレス" %>
+      <%= f.text_field :email %>
+    </div>
+    <div>
+      <%= f.label :password, "パスワード" %>
+      <%= f.text_field :password %>
+    </div>
+    <div>
+      <%= f.submit "ログイン" %>
+    </div>
+  <% end %>
+</div>

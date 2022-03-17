@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  root "top#index"
+  root "articles#index"
+  get "login" => "sessions#new", as: :login
+  resource :session, only: [:create, :destroy]
+  resources :articles, only: [:index, :new, :create]
 end

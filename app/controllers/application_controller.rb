@@ -4,23 +4,26 @@ class ApplicationController < ActionController::Base
   class IpAddressRejected < ActionController::ActionControllerError; end
 
   include ErrorHandlers if Rails.env.production?
-  # rescue_from StandardError, with: :rescue500
-  # rescue_from Forbidden, with: :rescue403
-  # rescue_from IpAddressRejected, with: :rescue403
-  # rescue_from ActiveRecord::RecordNotFound, with: :rescue404
-  # rescue_from ActionController::RoutingError, with: :rescue404
 
+  TIMEOUT = 60.minutes
 
-  # private def rescue500(e)
-  #   render "errors/internal_server_error", status: 500
-  # end
+  private def check_timeout
+    if current_user
+      if session[:last_access_time] >= TIMEOUT.ago
+        session[:last_access_time] = Time.current
+      else
+        session.delete(:user_id)
+        flash.alert = "セッションがタイムアウトしました"
+        redirect_to :login
+      end
+    end
+  end
 
-  # private def rescue403(e)
-  #   @exception = e
-  #   render "errors/forbidden", status: 403
-  # end
+  private def current_user
+    if session[:user_id]
+      @current_user ||= User.find_by(id: session[:user_id])
+    end
+  end
 
-  # private def rescue404(e)
-  #   render "errors/not_found", status: 404
-  # end
+  helper_method :current_user
 end
