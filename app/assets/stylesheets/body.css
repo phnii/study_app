@@ -6,4 +6,17 @@
 
 body {
   background-color: rgb(203, 196, 196);
+  font-size: 18px;
+}
+
+.highlight {
+  font-size: 18px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+textarea {
+  width: 100%;
 }

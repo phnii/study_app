@@ -1,1 +1,9 @@
 <h1>トップ(articles#index)</h1>
+<h2><%= current_admin_user %></h2>
+
+<% @articles.each do |article| %>
+  <div class="article-wrapper border m-2">
+    <p>タイトル：<%= link_to article.title, article_path(article.id), class: "text-muted" %></p>
+    <%= link_to "編集", edit_article_path(article.id), class: "btn btn-sm btn-primary" %>
+  </div>
+<% end %>

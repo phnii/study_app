@@ -1,5 +1,13 @@
 <header>
   <div class="wrapper bg-primary p-3">
     <h1 class="text-center  text-info">ふみの学習簿</h1>
+    <ul>
+      <% if current_user %>
+        <% if current_user.admin? %>
+          <li class="list-inline-item text-white mr-5"><%= link_to "新規投稿", new_article_path, class: "text-white" %></li>
+        <% end %>
+        <li class="list-inline-item text-white mr-5"><%= link_to "ログアウト", session_path, method: :delete, class: "text-white" %></li>
+      <% end %>
+    </ul>
   </div>
 </header>

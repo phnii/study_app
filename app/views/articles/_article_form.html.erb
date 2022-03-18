@@ -1,0 +1,13 @@
+<%= form_with model: article_instance,  locale: true do |f| %>
+  <div class="my-3">
+    <%= f.label :title, "タイトル" %> 
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :content, "内容" %>
+    <%= f.text_area :content, rows: 15 %>
+  </div>
+
+  <%= f.submit "送信" %>
+<% end %>
